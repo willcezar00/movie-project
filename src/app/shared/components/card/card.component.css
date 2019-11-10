@@ -1,0 +1,43 @@
+.card {
+  max-width: 400px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.card:hover {
+    max-width: 400px;
+    box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.75);
+    transition: all .5s;
+  }
+
+.card-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.card-actions {
+  text-align: right;
+}
+
+button {
+  padding: 10px 15px;
+  color: #c2c2c2;
+  border: 2px solid #c2c2c2;
+  display: inline-block;
+  font-size: 12px;
+  transition: all .5s;
+  cursor: pointer;
+  background-color: transparent;
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #EA4470;
+  border: 2px solid #EA4470;
+}
