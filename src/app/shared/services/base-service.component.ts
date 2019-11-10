@@ -26,7 +26,6 @@ export abstract class BaseService {
     }
 
     protected extractData(res: Response | any) {
-
         try {
             return <any>res.json();
         }

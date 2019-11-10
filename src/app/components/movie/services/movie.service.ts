@@ -20,11 +20,10 @@ export class MovieService extends BaseService {
 
   getMovies(request: MovieResquest): Observable<MovieResponse[]> {
     let params = {
-      t: request.title,
-      y: request.year
+      t: request.titulo
     }
     return this.http.get([this.url,].join('/'), { params: params }).pipe(
-      map(this.extractData),
+      map(response => response),
       catchError(this.handleError)
     );
   }

@@ -1,10 +1,14 @@
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
+
 export abstract class FormBaseComponent {
 
   private _formGroup: FormGroup;
   private _subscriptions: Subscription[] = [];
 
+
+  constructor(protected fb: FormBuilder) {
+  }
 
   public get formGroup() {
     return this._formGroup;

@@ -8,6 +8,8 @@ import { CardComponent } from './shared/components/card/card.component';
 import { MatInputModule } from '@angular/material/input';
 import { MovieDetailComponent } from './components/movie/movie-detail/movie-detail.component';
 import { MovieSearchComponent } from './components/movie/movie-search/movie-search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,9 @@ import { MovieSearchComponent } from './components/movie/movie-search/movie-sear
     MovieSearchComponent
   ],
   imports: [
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     MatInputModule,
     MatCardModule,
     BrowserModule,

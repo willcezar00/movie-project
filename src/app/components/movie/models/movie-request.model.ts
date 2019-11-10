@@ -1,8 +1,8 @@
 export class MovieResquest {
     constructor(
-        public title?: string,
-        public year?: string) {
-        this.title = title;
-        this.year = year;
+        public titulo?: string,
+        public ano?: string) {
+        this.titulo = titulo;
+        this.ano = ano;
     }
 }
