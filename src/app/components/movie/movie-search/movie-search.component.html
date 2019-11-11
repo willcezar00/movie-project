@@ -1,17 +1,16 @@
 <div class="container">
   <form [formGroup]="formGroup" class="search-form">
     <mat-form-field class="search-input">
-      <input formControlName="titulo" matInput placeholder="Titulo">
+      <input formControlName="titulo" matInput placeholder="*Titulo">
     </mat-form-field>
-
     <mat-form-field class="search-input">
-      <input formControlName="ano" matInput #ano maxlength="4" placeholder="Ano">
+      <input formControlName="ano" matInput #ano pattern="\d*" maxlength="4" placeholder="Ano" type="number">
     </mat-form-field>
 
     <button (click)='search()' class="search-button">Pesquisar</button>
   </form>
 
   <div *ngFor="let movie of movieList">
-    <app-card  title="Title" subtitle="Subtitle" description="Nota:x/x"></app-card>
+    <app-card  title="{{movie.Title}}" subtitle="{{movie.Plot}}" description="Nota:x/x" poster="{{movie.Poster}}"></app-card>
   </div>
 </div>

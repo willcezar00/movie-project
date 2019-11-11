@@ -10,6 +10,7 @@ export class CardComponent implements OnInit {
   @Input() title: String = "";
   @Input() subtitle: String = "";
   @Input() description: String = "";
+  @Input() poster: String = "";
 
   constructor() { }
 

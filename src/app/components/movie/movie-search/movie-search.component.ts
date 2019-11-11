@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBaseComponent } from 'src/app/shared/components/form-base.component';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MovieService } from '../services/movie.service';
 import { MovieResponse } from '../models/movie-response.model';
 
@@ -10,7 +10,7 @@ import { MovieResponse } from '../models/movie-response.model';
   styleUrls: ['./movie-search.component.css']
 })
 export class MovieSearchComponent extends FormBaseComponent implements OnInit {
-  protected movieList: MovieResponse[];
+  public movieList: MovieResponse[] = [];
 
   constructor(
     protected fb: FormBuilder,
@@ -25,14 +25,17 @@ export class MovieSearchComponent extends FormBaseComponent implements OnInit {
 
   buildForm() {
     this.formGroup = this.fb.group({
-      titulo: new FormControl(""),
-      ano: new FormControl("")
+      titulo: new FormControl("", Validators.required),
+      ano: new FormControl("", Validators.maxLength(4))
     });
   }
 
   search() {
-    this.movieService.getMovies(this.formGroup.value).subscribe(movies => {
-      this.movieList = movies;
-    })
+    if (this.formGroup.valid) {
+      this.movieList = [];
+      this.movieService.getMovies(this.formGroup.value).subscribe(movies => {
+        this.movieList.push(movies);
+      });
+    }
   }
 }
