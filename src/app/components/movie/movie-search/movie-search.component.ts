@@ -34,7 +34,7 @@ export class MovieSearchComponent extends FormBaseComponent implements OnInit {
     if (this.formGroup.valid) {
       this.movieList = [];
       this.movieService.getMovies(this.formGroup.value).subscribe(movies => {
-        this.movieList.push(movies);
+        this.movieList.push(...movies.Search);
       });
     }
   }

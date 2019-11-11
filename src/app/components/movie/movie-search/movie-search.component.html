@@ -1,5 +1,6 @@
 <div class="container">
-  <form [formGroup]="formGroup" class="search-form">
+
+  <div [formGroup]="formGroup" class="search-form">
     <mat-form-field class="search-input">
       <input formControlName="titulo" matInput placeholder="*Titulo">
     </mat-form-field>
@@ -8,9 +9,13 @@
     </mat-form-field>
 
     <button (click)='search()' class="search-button">Pesquisar</button>
-  </form>
+  </div>
 
-  <div *ngFor="let movie of movieList">
-    <app-card  title="{{movie.Title}}" subtitle="{{movie.Plot}}" description="Nota:x/x" poster="{{movie.Poster}}"></app-card>
+
+  <div>
+    <div id="movie" *ngFor="let movie of movieList">
+      <app-card class="movie-card" title="{{movie.Title}}" subtitle="{{movie.Plot}}" description="{{movie.imdbRating}}"
+        poster="{{movie.Poster}}"></app-card>
+    </div>
   </div>
 </div>
