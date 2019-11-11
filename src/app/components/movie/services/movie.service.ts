@@ -18,7 +18,7 @@ export class MovieService extends BaseService {
     super(http, API_URL);
   }
 
-  getMovies(request: MovieResquest): Observable<any> {
+  getMovies(request: MovieResquest): Observable<MovieResponse> {
     let params = {
       s: request.titulo
     }

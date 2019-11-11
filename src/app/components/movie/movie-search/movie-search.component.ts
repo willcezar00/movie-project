@@ -3,6 +3,7 @@ import { FormBaseComponent } from 'src/app/shared/components/form-base.component
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MovieService } from '../services/movie.service';
 import { MovieResponse } from '../models/movie-response.model';
+import { Movie } from '../models/movie.model';
 
 @Component({
   selector: 'app-movie-search',
@@ -10,7 +11,7 @@ import { MovieResponse } from '../models/movie-response.model';
   styleUrls: ['./movie-search.component.css']
 })
 export class MovieSearchComponent extends FormBaseComponent implements OnInit {
-  public movieList: MovieResponse[] = [];
+  public movieList: Movie[] = [];
 
   constructor(
     protected fb: FormBuilder,
