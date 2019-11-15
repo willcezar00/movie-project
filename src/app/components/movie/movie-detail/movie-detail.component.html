@@ -1,1 +1,30 @@
-<p>movie-detail works!</p>
+<div class="container">
+  <div class="movie-container">
+
+    <div class="movie-image">
+      <img class="image" [src]="movie?.Poster" [alt]="movie?.Title"
+        onError="this.src='../../../../assets/images/placeholder.jpg'">
+    </div>
+
+    <div class="detail">
+      <div class="detail-movie">
+        <p> <b>Título:</b> {{movie?.Title}} </p>
+        <p> <b>Sinopse:</b> {{movie?.Plot}} </p>
+        <p> <b>Ano:</b> {{movie?.Year}} </p>
+        <p> <b>Diretor:</b> {{movie?.Director}} </p>
+        <p> <b>Atores:</b> {{movie?.Actors}} </p>
+        <p> <b>Gênero:</b> {{movie?.Genre}} </p>
+        <p> <b>Escritores:</b> {{movie?.Writer}} </p>
+        <p> <b>Lançamento:</b> {{movie?.Released}} </p>
+        <p> <b>Tempo de filme:</b> {{movie?.Runtime}} </p>
+        <p> <b>Prêmios:</b> {{movie?.Awards}} </p>
+        <p> <b>Metascore:</b> {{movie?.Metascore}} </p>
+        <p> <b>Nota imdb:</b> {{movie?.imdbRating}} </p>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button (click)="return()"><i class="fa fa-arrow-left"></i> Voltar</button>
+    </div>
+  </div>
+</div>

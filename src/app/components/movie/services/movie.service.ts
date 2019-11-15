@@ -12,7 +12,14 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class MovieService extends BaseService {
 
+  private TYPE_MOVIE: string = 'movie';
+  private PLOT: string = 'full';
   url = [API_URL].join('/');
+
+  //backup
+  public movieRequest: MovieResquest;
+  public movieList: MovieResponse;
+  public initLoaded = false;
 
   constructor(http: HttpClient) {
     super(http, API_URL);
@@ -20,7 +27,22 @@ export class MovieService extends BaseService {
 
   getMovies(request: MovieResquest): Observable<MovieResponse> {
     let params = {
-      s: request.titulo
+      s: request.titulo,
+      y: request.ano,
+      type: this.TYPE_MOVIE,
+      plot: this.PLOT
+    }
+    return this.http.get([this.url,].join('/'), { params: params }).pipe(
+      map(response => response),
+      catchError(this.handleError)
+    );
+  }
+
+  getMovie(id: string): Observable<any> {
+    let params = {
+      i: id,
+      type: this.TYPE_MOVIE,
+      plot: this.PLOT,
     }
     return this.http.get([this.url,].join('/'), { params: params }).pipe(
       map(response => response),

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieDetailComponent } from './movie-detail.component';
+import { provideRoutes, Router } from '@angular/router';
+import { MovieService } from '../services/movie.service';
 
 describe('MovieDetailComponent', () => {
   let component: MovieDetailComponent;
@@ -8,15 +10,26 @@ describe('MovieDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieDetailComponent ]
+      declarations: [MovieDetailComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MovieDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    TestBed.configureTestingModule({
+      declarations: [
+
+      ],
+      imports: [
+        MovieService,
+        Router
+      ],
+      providers: []
+
+    });
   });
 
   it('should create', () => {

@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieSearchComponent } from './movie-search.component';
+import { MovieService } from '../services/movie.service';
+import { Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 describe('MovieSearchComponent', () => {
   let component: MovieSearchComponent;
@@ -8,9 +12,17 @@ describe('MovieSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieSearchComponent ]
+      declarations: [MovieSearchComponent],
+      imports: [
+        MovieService,
+        Router,
+        ReactiveFormsModule,
+        MatInputModule
+
+      ],
+      providers: []
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +34,8 @@ describe('MovieSearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should bring 10 movies', () => {
+
+  })
 });

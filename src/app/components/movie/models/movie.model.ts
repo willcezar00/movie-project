@@ -5,12 +5,8 @@ export class Movie {
         public Type?: string,
         public Year?: string,
         public imdbID?: string,
+        public Rating?: number
     ) {
-        this.Poster = Poster;
-        this.Title = Title;
-        this.Type = Type;
-        this.Year = Year;
-        this.imdbID = imdbID;
 
     }
 }

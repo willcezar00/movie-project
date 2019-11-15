@@ -5,17 +5,32 @@
       <input formControlName="titulo" matInput placeholder="*Titulo">
     </mat-form-field>
     <mat-form-field class="search-input">
-      <input formControlName="ano" matInput #ano pattern="\d*" maxlength="4" placeholder="Ano" type="number">
+      <input formControlName="ano" matInput #ano max="9999" placeholder="Ano" type="number">
     </mat-form-field>
 
-    <button (click)='search()' class="search-button">Pesquisar</button>
+    <button (click)='search()' class="search-button"><i class="fa fa-search"></i></button>
+
+    <button mat-button [matMenuTriggerFor]="menu" class="search-button"><i class="fa fa-filter"></i></button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="order('asc','Title')">Ordenar por Título (Decrescente)</button>
+      <button mat-menu-item (click)="order('desc','Title')">Ordenar por Título (Crescente)</button>
+      <button mat-menu-item (click)="order('asc', 'Rating')">Ordenar por Nota (Crescente)</button>
+      <button mat-menu-item (click)="order('desc','Rating')">Ordenar por Nota (Decrescente)</button>
+    </mat-menu>
+
   </div>
 
 
   <div>
-    <div id="movie" *ngFor="let movie of movieList">
-      <app-card class="movie-card" title="{{movie.Title}}" subtitle="{{movie.Year}}" description="{{movie.imdbRating}}"
-        poster="{{movie.Poster}}"></app-card>
+    <div id="movie" *ngFor="let movie of movieList?.Search">
+      <app-card *ngIf="movieList.Response !== 'False'" class="movie-card" [title]="movie.Title" [subtitle]="movie.Year"
+        [poster]="movie.Poster" (onClick)="rediretoToDetails(movie.imdbID)">
+        <p *ngIf="movie?.Rating"><b>Nota: </b> {{movie?.Rating | number:'1.0-0'}}</p>
+        <p *ngIf="!movie?.Rating"><b>Nota: </b> N/A</p>
+      </app-card>
+
     </div>
+    <span *ngIf="movieList?.Response === 'False'" class="search-error"> Nenhum filme encontrado!</span>
   </div>
 </div>

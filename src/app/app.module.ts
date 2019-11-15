@@ -10,6 +10,7 @@ import { MovieDetailComponent } from './components/movie/movie-detail/movie-deta
 import { MovieSearchComponent } from './components/movie/movie-search/movie-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     HttpClientModule,
+    MatMenuModule,
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
